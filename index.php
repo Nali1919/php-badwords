@@ -1,25 +1,36 @@
-<?php
+<h1>Paragrafo:</h1>
 
- $frase = ' Ciao mi chiamo Michele e vengo da Cremona';
+<?php 
+$variabile = 'Ho odiato ogni minuto di allenamento, ma mi sono detto, "Non smettere. Soffri ora e vivi il resto della tua vita come un campione.'; // Paragrafo INIZIALE
+$badword = $_GET['word'];
 
- echo $frase . '<br>'; 
-
-  echo strlen($frase) . '<br>'; 
-
- $parola = $_GET["changeParola"];
+$testocensurato = str_replace($badword,"***",$variabile); // Nuovo Paragrafo Censurato
+?>
 
 
- $change = str_replace('Ciao', $parola, $frase);
+<h1>
+<?php echo $variabile ?>
+</h1>
 
- echo $change . '<br>';
+<p>La lunghezza del testo è di: <?= strlen($variabile); ?> caratteri.</p> <!--lunghezza paragrafo-->
 
- echo strlen($change)
+<h2>Parola da Censurare :</h2> <!---FORM-->
+<form action="index.php" method="get"> 
+   word: <input type="text" name="word">
+   <input type="submit"> 
+
+
+</form>
+
+<p>Parola da Censurare :  <?php  echo $badword;?></p> <!--Stampo parola da censurare-->
+
+<h1>Paragrafo Censurato:</h1>
+
+<h2>
+    
+   <?php echo $testocensurato ?> <!--Stampo Nuovo Paragrafo-->
+
+</h2>
  
 
-
-
-
-  
-    
-
-?>
+<p>La lunghezza del testo è di: <?= strlen($testocensurato); ?> caratteri.</p>
